@@ -1,0 +1,22 @@
+{% extends 'testapp/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="jumbotron" align="center"><br>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li><h4 style="color:red;">{{ message }}</h4></li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <h3>Login Form</h3><hr><br>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+                </table><br>
+                &emsp; &emsp; &emsp;<input type="submit" value="Login" class="btn btn-success active">
+            </form><br>
+        </div>
+    </div>
+{% endblock  %}

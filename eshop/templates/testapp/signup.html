@@ -1,0 +1,23 @@
+{% extends 'testapp/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="jumbotron" align="center"><br>
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li><h5 style="color:green;">{{ message }}</h5></li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+            <h3>Signup Form</h3><hr><br>
+                <table>
+                    {{form.as_table}}
+                    </table>
+        <input type="submit" value="Signup" class="btn btn-primary active">
+            </form><br><br>
+        </div>
+    </div>
+{% endblock %}
+

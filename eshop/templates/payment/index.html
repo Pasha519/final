@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'payment/base.html' %}
+{% block body %}
+
+
+
+<div class="container" align="center">
+      <h1 class="title">Pasha Shopping Store☕</h1>
+      <small class="muted"><h6 style="color:green">We are honor to provide service .feel to free visit</h6></small><br>
+      <div><br>
+        <!-- Payment Button -->
+        <button class="btn-lg btn-primary active" id="pay-btn">Pay❤️</button><br><br>
+      </div>
+    </div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+      key: "{{razorpay_merchant_key }}",
+      amount: "{{ razorpay_amount }}",
+      currency: "{{ currency }}",
+      name: "Pasha Shopping Application",
+      order_id: "{{ razorpay_order_id }}",
+      callback_url: "{{ callback_url }}",
+    
+     "prefill":
+      {
+        
+        "email": "{{email}}",
+        "contact": "{{number}}",
+    }
+    };
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+     
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+{% endblock  %}

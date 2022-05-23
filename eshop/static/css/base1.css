@@ -1,0 +1,16 @@
+body {
+    background-color: orchid;
+}
+
+img {
+    width: 100%;
+    height: 73%;
+}
+
+.jumbotron {
+    background-color: chartreuse;
+}
+
+.container {
+    background-color: white;
+}
